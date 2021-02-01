@@ -1,0 +1,25 @@
+
+<!doctype html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>tosdr</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+      $.getJSON("https://api.tosdr.org/v1/service/" + $("#company").val() + ".json").done(function(data) {
+       $('#tos').text(JSON.stringify(data, null, '\t'));
+      });
+  });
+});
+</script> 
+  </head>
+  <body>
+<p><input type="text" id="company" value="facebook"></p>
+<button>Show Value</button>
+<pre id="tos">
+</pre>
+
+  </body>
+</html>
